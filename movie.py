@@ -29,9 +29,9 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-@app.route('/')
-def main():
-    return "working"
+#@app.route('/')
+#def main():
+#    return "working"
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -59,17 +59,14 @@ def processRequest(req):
     speech = "Today the weather in " + response['title']
 
 
-print("Response:")
-print(speech)
+    print("Response:")
+    print(speech)
 
-return {
-    "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
-    
+    return {
+        "speech": speech,
+            "displayText": speech,
+            "source": "apiai-weather-webhook-sample"
+        }
     return re
         
 
